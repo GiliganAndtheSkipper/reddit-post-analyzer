@@ -1,0 +1,110 @@
+.widget-b {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+    height: 100%;
+}
+
+.widget-b h2 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.chart-js-render-monitor {
+    height: 100% !important; 
+    width: 100% !important;
+}
+
+/* Small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    .widget-b {
+        padding: 15px;
+    }
+
+    .widget-b h2 {
+        font-size: 1rem;
+    }
+}
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 768px) and (max-width: 991.98px){
+    .widget-b h2 {
+        font-size: 1.2rem;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .widget-b {
+        padding: 25px;
+    }
+    
+    .widget-b h2 {
+        font-size: 1.6rem;
+    }
+}
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .widget-b {
+        padding: 30px;
+    }
+    
+    .widget-b h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* High Contrast and Reduced Motion */
+@media (prefers-contrast: high) {
+    .widget-b {
+        border-color: #000;
+        background-color: #fff;
+        color: #000;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .widget-b * {
+        transition: none;
+    }
+}
+
+/* Hover and Focus States */
+.widget-b button, widget-b a {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+.widget-b button:hover, .widget-b a:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.widget-b button:focus, .widget-b a:focus {
+    background-color: #004494;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+}
+
+/* Adaptive Typography */
+:root {
+    --font-scale: 1;
+}
+
+@media (min-width: 768px) {
+    :root {
+        --font-scale: 1.1;
+    }
+}
+
+@media (min-width: 992px) {
+    :root {
+        --font-scale: 1.2;
+    }
+}
+
+.widget-b h2 {
+    font-size: calc(1.5rem * var(--font-scale));
+}

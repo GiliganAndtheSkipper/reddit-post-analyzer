@@ -1,0 +1,23 @@
+.comments-container {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 10px;
+    overflow-y: auto;
+    height: 100%;
+}
+
+.comments-container h3 {
+    color: #333;
+}
+
+.comments-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.comments-container li {
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 5px;
+}

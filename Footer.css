@@ -1,0 +1,130 @@
+/* src/components/styles/Footer.css */
+
+.app-footer {
+    background-color: #222; 
+    color: #ccc; 
+    padding: 2% 1%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center; 
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5); 
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px; 
+    margin-bottom: 1%;
+    padding-left: 15%;
+    line-height: 1.4; 
+}
+
+.footer-section {
+    flex: 1;
+    margin: 0 20px;
+    text-align: left; 
+    min-width: 150px;
+}
+
+.footer-section h3 {
+    color: #fff; 
+    margin-bottom: 0.5rem;
+    font-size: 18px; 
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section li {
+    margin: 5px 0; 
+    padding: 0;
+}
+
+.footer-section a {
+    color: #00aced; 
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: #1da1f2; 
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    line-height: 1.2; 
+    color: #777; 
+}
+
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icons a {
+    margin: 0 10px;
+    color: #00aced;
+    text-decoration: none;
+    font-size: 20px; 
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #1da1f2;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .footer-content {
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        line-height: 1.5; 
+    }
+
+    .footer-section {
+        margin: 10px 0;
+        text-align: center; 
+    }
+
+    .footer-bottom {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-section {
+        text-align: center;
+    }
+    .footer-section ul {
+        padding-left: 0;
+    }
+    .footer-bottom {
+        font-size: 0.7rem;
+    }
+    .social-icons a {
+        display: inline-block;
+        margin-right: 0.2rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .footer-section h3 {
+        font-size: 0.9rem;
+    }
+    .footer-section a {
+        font-size: 0.8rem;
+    }
+}

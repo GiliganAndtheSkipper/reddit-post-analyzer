@@ -1,0 +1,104 @@
+/* src/components/styles/Header.css */
+.header {
+  background-color: #f4f4f4;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1% 2%; 
+}
+
+.header h1 {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem); 
+  color: #333;
+}
+
+.header nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.header nav a {
+  color: #007bff;
+  text-decoration: none;
+  font-size: clamp(0.9rem, 2vw, 1.1rem); 
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.header nav a:hover,
+.header nav a:focus {
+  color: #0056b3;
+  background-color: #e7f1ff;
+  outline: none;
+}
+
+/* Logo styling */
+.header .logo {
+  height: 50px; 
+  width: auto;  
+  margin-right: 1rem; 
+}
+
+/* Media queries */
+@media (max-width: 1024px) {
+  .header {
+      flex-direction: column;
+      align-items: center;
+  }
+  .header h1 {
+      margin-bottom: 0.5rem;
+  }
+  .header nav {
+      width: 100%;
+      justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    padding: 1rem;
+    align-items: center;
+  }
+
+  .header h1 {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+  }
+
+  .header nav {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .header nav a {
+    text-align: center;
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    display: block;
+  }
+
+  .header .logo {
+      height: 40px; 
+      margin-bottom: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+      padding: 1rem;
+  }
+  
+  .header h1 {
+      font-size: 1.2rem;
+  }
+
+  .header nav a {
+      font-size: 1rem;
+  }
+
+  .header .logo {
+      height: 35px; 
+  }
+}
