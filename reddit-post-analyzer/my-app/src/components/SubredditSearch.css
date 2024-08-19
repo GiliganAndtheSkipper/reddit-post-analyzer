@@ -1,72 +1,131 @@
 /* Base styles for all devices */
 .subreddit-search {
-    margin: 20px;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  
-  .search-input {
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.search-input {
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 5px;
     font-size: 16px;
     width: 100%;
     max-width: 400px;
     box-sizing: border-box;
     margin-bottom: 10px;
-  }
-  
-  .search-button {
-    padding: 10px 15px;
+}
+
+.search-button {
+    padding: 10px 20px;
     background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
     width: 100%;
     max-width: 150px;
-  }
-  
-  .search-button:hover {
+    margin-left: 0;
+}
+
+.search-button:hover {
     background-color: #0056b3;
-  }
-  
-  /* Media Queries for responsiveness */
-  
-  /* Medium devices (tablets, 768px and up) */
-  @media (min-width: 768px) {
+}
+
+/* Styling for the list and list items */
+.results-list {
+  list-style-type: none; /* Removes bullet points */
+  padding: 0;
+  margin: 0;
+}
+
+.result-item {
+  margin-bottom: 10px;
+}
+
+.result-link {
+  text-decoration: none;
+  font-size: 18px;
+  color: #007bff;
+}
+
+.result-link:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
     .subreddit-search {
-      flex-direction: row;
-      justify-content: center;
+        flex-direction: row;
+        justify-content: center;
+        padding: 30px;
     }
-  
+
+    form {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
     .search-input {
-      margin-bottom: 0;
-      margin-right: 10px;
-      width: auto;
-      flex-grow: 1;
+        margin-bottom: 0;
+        margin-right: 10px;
+        width: auto;
+        flex-grow: 1;
     }
-  
+
     .search-button {
-      width: auto;
+        width: auto;
+        margin-left: 10px;
     }
-  }
-  
-  /* Large devices (desktops, 1024px and up) */
-  @media (min-width: 1024px) {
+}
+
+/* Large devices (desktops, 1024px and up) */
+@media (min-width: 1024px) {
     .subreddit-search {
-      max-width: 600px;
-      margin: 0 auto;
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 40px;
     }
-  
+
     .search-input {
-      font-size: 18px;
+        font-size: 18px;
+        max-width: 500px;
     }
-  
+
     .search-button {
-      font-size: 18px;
+        font-size: 18px;
     }
-  }
-  
+
+    ul {
+        padding-top: 20px;
+    }
+
+    a {
+        font-size: 20px;
+    }
+}

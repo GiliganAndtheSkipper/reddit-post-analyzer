@@ -21,7 +21,6 @@ function App() {
       </header>
 
       <div>
-        <h2>Search for Subreddits</h2>
         <SubredditSearch />
       </div>
     </div>

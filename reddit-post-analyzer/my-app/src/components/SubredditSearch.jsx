@@ -18,22 +18,28 @@ const SubredditSearch = () => {
   };
 
   return (
-    <div>
+    <div className="subreddit-search">
       <h1>Search Subreddits</h1>
-      <form onSubmit={handleSearch}>
+      <form className="search-form" onSubmit={handleSearch}>
         <input
+          className="search-input"
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search for a subreddit"
         />
-        <button type="submit">Search</button>
+        <button className="search-button" type="submit">Search</button>
       </form>
 
-      <ul>
+      <ul className="results-list">
         {results.map((subreddit) => (
-          <li key={subreddit.id}>
-            <a href={`https://www.reddit.com${subreddit.url}`} target="_blank" rel="noopener noreferrer">
+          <li className="result-item" key={subreddit.id}>
+            <a 
+              className="result-link"
+              href={`https://www.reddit.com${subreddit.url}`} 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
               {subreddit.display_name_prefixed}
             </a>
           </li>
