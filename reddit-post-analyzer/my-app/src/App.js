@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import SubredditSearch from './components/SubredditSearch.jsx';
 
 function App() {
   return (
@@ -18,6 +19,11 @@ function App() {
           Learn React
         </a>
       </header>
+
+      <div>
+        <h2>Search for Subreddits</h2>
+        <SubredditSearch />
+      </div>
     </div>
   );
 }
