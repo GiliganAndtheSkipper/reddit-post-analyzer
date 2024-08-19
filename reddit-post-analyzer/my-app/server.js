@@ -4,7 +4,7 @@ const axios = require('axios'); // To make HTTP requests to Reddit's API
 const app = express();
 
 // Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, 'build')));
 
 // API endpoint for searching subreddits
 app.get('/api/search-subreddits', async (req, res) => {
@@ -24,9 +24,9 @@ app.get('/api/search-subreddits', async (req, res) => {
 
 // For any other route, serve the React app
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client/build/index.html'));
-});
-
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  });
+  
 // Set the port
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
