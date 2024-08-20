@@ -7,7 +7,6 @@ const SubredditSearch = () => {
 
   const handleSearch = async (e) => {
     e.preventDefault();
-
     try {
       const response = await fetch(`https://www.reddit.com/subreddits/search.json?q=${query}`);
       const data = await response.json();
@@ -19,14 +18,14 @@ const SubredditSearch = () => {
 
   return (
     <div className="subreddit-search">
-      <h1>Search Subreddits</h1>
+       {/* <h1>Search Subreddits</h1> */}
       <form className="search-form" onSubmit={handleSearch}>
         <input
           className="search-input"
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search for a subreddit"
+          placeholder="Enter subreddit name" /* Updated placeholder */
         />
         <button className="search-button" type="submit">Search</button>
       </form>

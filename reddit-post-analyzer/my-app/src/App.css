@@ -1,36 +1,56 @@
+/* Overall App container */
 .App {
   text-align: center;
-  display: flex; 
+}
+
+/* Header section styling */
+.App-header {
+  background-color: black; 
+  padding: 20px;
+  display: flex;
   justify-content: center;
-  unicode-bidi: initial;
+  align-items: center;
+  color: white;
+  position: fixed; 
+  top: 0; 
+  width: 100%; 
+  z-index: 1000; 
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Container for the logo and navigation links */
+.logo-nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.header-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #61dafb; 
+  margin: 0 20px; 
+}
+
+/* Keyframe for the glowing effect */
+@keyframes App-logo-glow {
+  0% {
+    box-shadow: 0 0 10px #61dafb, 0 0 20px #61dafb, 0 0 30px #61dafb, 0 0 40px #61dafb;
+    filter: brightness(100%);
+  }
+  50% {
+    box-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 60px #ff00ff, 0 0 80px #ff00ff;
+    filter: brightness(130%);
+  }
+  100% {
+    box-shadow: 0 0 10px #61dafb, 0 0 20px #61dafb, 0 0 30px #61dafb, 0 0 40px #61dafb;
+    filter: brightness(100%);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
+/* Keyframe for the logo spinning */
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -38,4 +58,93 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Keyframe for the color-changing effect */
+@keyframes App-logo-color-change {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(180deg); /* Changes the hue halfway through the animation */
+  }
+  100% {
+    filter: hue-rotate(360deg); /* Completes the full hue rotation */
+  }
+}
+
+/* Applying spinning, glowing, and color-changing animations to the logo */
+.App-logo {
+  height: 60px;
+  pointer-events: none;
+  margin-right: 20px;
+  background-color: transparent; 
+  animation: App-logo-spin infinite 20s linear, 
+             App-logo-glow infinite 5s ease-in-out, 
+             App-logo-color-change infinite 10s linear; /* Spinning, Glowing, and Color-Changing */
+}
+
+/* Media query for users with reduced motion preferences */
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear, 
+               App-logo-glow infinite 5s ease-in-out, 
+               App-logo-color-change infinite 10s linear;
+  }
+}
+
+/* Navigation links styling */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+main {
+  padding: 120px 60px;
+  background-color: #008080;
+  display: flex;
+  justify-content: center;
+}
+
+/* Subreddit search styling */
+.subreddit-search {
+  max-width: 600px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Hero section styling */
+.hero-section {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #d3e0ea;
+  color: #333;
+}
+
+.hero-section h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.hero-section p {
+  font-size: 18px;
+  color: #777;
+}
+
+/* Optional: Styling for the App-link */
+.App-link {
+  color: #61dafb;
 }

@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import SubredditSearch from './components/SubredditSearch.jsx';
 
@@ -6,23 +5,25 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div className="logo-nav-container">
+          <img src={`${process.env.PUBLIC_URL}/logo512.png`} className="App-logo" alt="My Logo" />
+          <h1 className="header-title">Subreddit Post Analyzer</h1>
+          <nav>
+            <ul className="nav-links">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
       </header>
-
-      <div>
-        <SubredditSearch />
-      </div>
+      <main>
+        <section className="hero-section">
+          <h2>Get Insights on Your Favorite Subreddits</h2>
+          
+          <SubredditSearch />
+        </section>
+      </main>
     </div>
   );
 }
