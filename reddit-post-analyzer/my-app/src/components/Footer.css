@@ -1,0 +1,76 @@
+/* Footer section styling */
+.App-footer {
+    background-color: black;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+  /* Logo and navigation container */
+  .App-footer .logo-nav-container {
+    display: flex;
+    justify-content: center; /* Centered to account for no logo */
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+  }
+  
+  /* Footer navigation links */
+  .App-footer .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+  }
+  
+  /* Footer link styling */
+  .App-footer .nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+  }
+  
+  /* Hover effect for footer links */
+  .App-footer .nav-links a:hover {
+    color: #61dafb;
+    transform: scale(1.1);
+  }
+  
+  /* Responsive Design for Tablets and Mobiles */
+  @media (max-width: 768px) {
+    .App-footer {
+      flex-direction: column;
+      padding: 15px;
+      text-align: center;
+    }
+  
+    .App-footer .logo-nav-container {
+      flex-direction: column;
+      gap: 20px;
+    }
+  
+    .App-footer .nav-links {
+      flex-direction: column;
+      gap: 15px;
+    }
+  
+    .App-footer .nav-links a {
+      font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .App-footer .nav-links a {
+      font-size: 12px;
+    }
+  
+    .App-footer {
+      padding: 10px;
+    }
+  }
+  

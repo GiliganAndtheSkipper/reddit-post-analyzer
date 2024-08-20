@@ -1,6 +1,15 @@
 /* Overall App container */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
 }
 
 /* Header section styling */
@@ -104,10 +113,33 @@
   text-decoration: none;
   color: white;
   font-size: 18px;
+  position: relative;
+  padding: 5px 0;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .nav-links a:hover {
-  text-decoration: underline;
+  color: #61dafb; /* Change color on hover */
+  transform: scale(1.1); /* Slight zoom-in effect */
+}
+
+.nav-links a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #61dafb;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::before {
+  width: 100%; /* Expanding line effect on hover */
+}
+
+.nav-links a:active {
+  transform: scale(0.95); /* Slight shrink effect when clicked */
 }
 
 main {
@@ -115,6 +147,7 @@ main {
   background-color: #008080;
   display: flex;
   justify-content: center;
+  flex-grow: 1;
 }
 
 /* Subreddit search styling */

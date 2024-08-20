@@ -1,5 +1,6 @@
 import './App.css';
 import SubredditSearch from './components/SubredditSearch.jsx';
+import './components/Footer.css';
 
 function App() {
   return (
@@ -24,6 +25,17 @@ function App() {
           <SubredditSearch />
         </section>
       </main>
+      <footer className="App-footer">
+        <div className="logo-nav-container">
+          <nav>
+            <ul className="nav-links">
+              <li><a href="#">Privacy</a></li>
+              <li><a href="#">Terms</a></li>
+              <li><a href="#">Support</a></li>
+            </ul>
+          </nav>
+        </div>
+      </footer>
     </div>
   );
 }
