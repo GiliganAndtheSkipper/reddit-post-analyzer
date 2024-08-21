@@ -57,6 +57,7 @@
     .App-footer .nav-links {
       flex-direction: column;
       gap: 15px;
+      text-align: center;
     }
   
     .App-footer .nav-links a {
@@ -65,6 +66,10 @@
   }
   
   @media (max-width: 480px) {
+    .App-footer .nav-links {
+        gap: 20px; /* Slightly larger gap between links */
+      }
+    
     .App-footer .nav-links a {
       font-size: 12px;
     }

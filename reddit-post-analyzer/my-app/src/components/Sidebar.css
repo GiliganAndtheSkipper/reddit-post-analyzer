@@ -1,0 +1,105 @@
+.sidebar {
+    width: 250px;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-right: 1px solid #ddd;
+    flex-shrink: 0;
+  }
+  
+  .top-posts, .categories {
+    margin-bottom: 20px;
+  }
+  
+  .top-posts h3, .categories h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .top-posts ul, .categories ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .top-posts li, .categories li {
+    margin-bottom: 10px;
+  }
+  
+  .top-posts a {
+    text-decoration: none;
+    color: #0070f3;
+    word-break: break-word;
+  }
+  
+  .top-posts a:hover {
+    text-decoration: underline;
+  }
+  
+  @media (min-width: 1024px) {
+    .sidebar {
+      .sidebar {
+        width: 240px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        padding-right: 0px;
+        padding-left: 0px;
+      }
+    }
+    
+    .top-posts h3, .categories h3 {
+      font-size: 20px;
+    }
+  
+    .top-posts li, .categories li {
+      font-size: 16px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .app-content {
+      flex-direction: column;
+    }
+  
+    .sidebar {
+      width: 100%;
+      border-right: none;
+      border-bottom: 1px solid #ddd;
+      padding: 10px;
+    }
+  
+    .top-posts h3, .categories h3 {
+      font-size: 16px;
+    }
+  
+    .top-posts li, .categories li {
+      font-size: 14px;
+    }
+  
+    .top-posts ul, .categories ul {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .top-posts li, .categories li {
+      margin-bottom: 8px;
+    }
+  
+    .top-posts a {
+      font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .sidebar {
+      width: 100%;
+      padding: 5px;
+    }
+  
+    .top-posts h3, .categories h3 {
+      font-size: 14px;
+    }
+  
+    .top-posts li, .categories li {
+      font-size: 12px;
+    }
+  }
+  

@@ -1,15 +1,15 @@
 import './App.css';
 import SubredditSearch from './components/SubredditSearch.jsx';
 import './components/Footer.css';
+import Sidebar from './components/Sidebar.jsx';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-     
         <div className="logo-nav-container">
-        <img src={`${process.env.PUBLIC_URL}/logo512.png`} className="App-logo" alt="My Logo" /> 
-        <h1 className="header-title">Subreddit Post Analyzer</h1>
+          <img src={`${process.env.PUBLIC_URL}/logo512.png`} className="App-logo" alt="My Logo" /> 
+          <h1 className="header-title">Subreddit Post Analyzer</h1>
           <nav>
             <ul className="nav-links">
               <li><a href="#">Home</a></li>
@@ -19,13 +19,15 @@ function App() {
           </nav>
         </div>
       </header>
-      <main>
+      
+      <main className="app-content">
+        <Sidebar />
         <section className="hero-section">
           <h2>Get Insights on Your Favorite Subreddits</h2>
-          
           <SubredditSearch />
         </section>
       </main>
+
       <footer className="App-footer">
         <div className="logo-nav-container">
           <nav>
