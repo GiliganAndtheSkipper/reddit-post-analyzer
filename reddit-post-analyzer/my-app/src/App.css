@@ -43,6 +43,49 @@ html, body {
   margin: 0 20px; 
 }
 
+/* Adding perspective to the container */
+.container {
+  perspective: 1000px; /* Adds depth to 3D rotation */
+}
+
+/* Keyframe for the 3D spinning effect */
+@keyframes App-logo-3d-spin {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  25% {
+    transform: rotateX(90deg) rotateY(0deg) rotateZ(45deg);
+  }
+  50% {
+    transform: rotateX(180deg) rotateY(180deg) rotateZ(90deg);
+  }
+  75% {
+    transform: rotateX(270deg) rotateY(90deg) rotateZ(135deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(180deg);
+  }
+}
+
+/* Keyframe for enhanced dynamic 3D movement */
+@keyframes enhanced-3d-movement {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) translate3d(0px, 0px, 0px);
+  }
+  25% {
+    transform: rotateX(45deg) rotateY(60deg) rotateZ(30deg) translate3d(20px, 30px, 50px);
+  }
+  50% {
+    transform: rotateX(90deg) rotateY(120deg) rotateZ(60deg) translate3d(-20px, -30px, 100px);
+  }
+  75% {
+    transform: rotateX(135deg) rotateY(180deg) rotateZ(90deg) translate3d(20px, 30px, -50px);
+  }
+  100% {
+    transform: rotateX(180deg) rotateY(240deg) rotateZ(120deg) translate3d(0px, 0px, 0px);
+  }
+}
+
 /* Keyframe for the glowing effect */
 @keyframes App-logo-glow {
   0% {
@@ -59,46 +102,68 @@ html, body {
   }
 }
 
-/* Keyframe for the logo spinning */
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 /* Keyframe for the color-changing effect */
 @keyframes App-logo-color-change {
   0% {
     filter: hue-rotate(0deg);
   }
+  25% {
+    filter: hue-rotate(90deg);
+  }
   50% {
     filter: hue-rotate(180deg); /* Changes the hue halfway through the animation */
+  }
+  75% {
+    filter: hue-rotate(270deg); /* Changes the hue halfway through the animation */
   }
   100% {
     filter: hue-rotate(360deg); /* Completes the full hue rotation */
   }
 }
 
-/* Applying spinning, glowing, and color-changing animations to the logo */
+/* Keyframe for shape-shifting effect */
+@keyframes App-logo-shape-shift {
+  0% {
+    border-radius: 0%; /* Square */
+    transform: scale(1.3);
+  }
+  25% {
+    border-radius: 50%; /* Circle */
+    transform: scale(1.4); /* Slight enlargement */
+  }
+  50% {
+    border-radius: 20%; /* Rounded rectangle */
+    transform: scale(1.5); /* Further enlargement */
+  }
+  75% {
+    border-radius: 50% 20%; /* Oval shape */
+    transform: scale(1.45); /* Slight shrink */
+  }
+  100% {
+    border-radius: 0%; /* Back to square */
+    transform: scale(1.3); /* Return to original scale */
+  }
+}
+
+/* Applying 3D spinning, glowing, color-changing, and shape-shifting animations to the logo */
 .App-logo {
   height: 60px;
   pointer-events: none;
   margin-right: 20px;
   background-color: transparent; 
-  animation: App-logo-spin infinite 20s linear, 
-             App-logo-glow infinite 5s ease-in-out, 
-             App-logo-color-change infinite 10s linear; /* Spinning, Glowing, and Color-Changing */
+  animation: enhanced-3d-movement infinite 8s ease-in-out,  /* Enhanced 3D dynamic movement */
+             App-logo-glow infinite 5s ease-in-out,  /* Glowing effect */
+             App-logo-color-change infinite 7s linear,  /* Color-changing effect */
+             App-logo-shape-shift infinite 6s ease-in-out;  /* Shape-shifting effect */
 }
 
 /* Media query for users with reduced motion preferences */
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear, 
-               App-logo-glow infinite 5s ease-in-out, 
-               App-logo-color-change infinite 10s linear;
+    animation: enhanced-3d-movement infinite 8s ease-in-out,  /* Enhanced 3D dynamic movement */
+               App-logo-glow infinite 5s ease-in-out,  /* Glowing effect */
+               App-logo-color-change infinite 7s linear,
+               App-logo-shape-shift infinite 6s ease-in-out;  /* Shape-shifting effect */
   }
 }
 

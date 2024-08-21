@@ -6,9 +6,10 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+     
         <div className="logo-nav-container">
-          <img src={`${process.env.PUBLIC_URL}/logo512.png`} className="App-logo" alt="My Logo" />
-          <h1 className="header-title">Subreddit Post Analyzer</h1>
+        <img src={`${process.env.PUBLIC_URL}/logo512.png`} className="App-logo" alt="My Logo" /> 
+        <h1 className="header-title">Subreddit Post Analyzer</h1>
           <nav>
             <ul className="nav-links">
               <li><a href="#">Home</a></li>
