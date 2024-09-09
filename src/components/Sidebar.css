@@ -1,0 +1,134 @@
+.sidebar {
+  width: 250px;
+  padding: 10px;
+  background-color: #f4f4f4;
+  border-right: 1px solid #ddd;
+  flex-shrink: 0;
+}
+
+/* Navigation Links in Sidebar */
+.nav-links-sidebar {
+  margin-bottom: 20px; /* Space between nav and next section */
+}
+
+.nav-links-sidebar ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  margin-top: 12%;
+}
+
+.nav-links-sidebar li {
+  margin-bottom: 5px; /* Reduced space between navigation links */
+}
+
+.nav-links-sidebar a {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+}
+
+.nav-links-sidebar a:hover {
+  color: #61dafb;
+}
+
+/* Top Posts and Categories Styles */
+.top-posts, .categories {
+  margin-bottom: 20px;
+}
+
+.top-posts h3, .categories h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.top-posts ul, .categories ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.top-posts li, .categories li {
+  margin-bottom: 10px;
+}
+
+.top-posts a {
+  text-decoration: none;
+  color: #0070f3;
+  word-break: break-word;
+}
+
+.top-posts a:hover {
+  text-decoration: none;
+}
+
+.categories ul li i {
+  margin-right: 10px;
+}
+
+/* Desktop Styles */
+@media (min-width: 1024px) {
+  .sidebar {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .top-posts h3, .categories h3 {
+    font-size: 16px;
+  }
+
+  .top-posts li, .categories li {
+    font-size: 16px;
+  }
+}
+
+/* Tablet Styles */
+@media (max-width: 768px) {
+  .app-content {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+  }
+
+  .top-posts h3, .categories h3 {
+    font-size: 16px;
+  }
+
+  .top-posts li, .categories li {
+    font-size: 14px;
+  }
+
+  .top-posts ul, .categories ul {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .top-posts li, .categories li {
+    margin-bottom: 8px;
+  }
+
+  .top-posts a {
+    font-size: 14px;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 480px) {
+  .sidebar {
+    width: 100%;
+    padding: 5px;
+  }
+
+  .top-posts h3, .categories h3 {
+    font-size: 14px;
+  }
+
+  .top-posts li, .categories li {
+    font-size: 12px;
+  }
+}

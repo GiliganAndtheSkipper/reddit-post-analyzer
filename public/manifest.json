@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Reddit Analyzer",
+  "name": "Reddit Post Analyzer",
   "icons": [
     {
       "src": "favicon.ico",
