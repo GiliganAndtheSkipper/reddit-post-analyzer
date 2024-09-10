@@ -19,10 +19,9 @@ const Sidebar = () => {
       });
   }, []);
 
-  // Static subreddit categories for now
   useEffect(() => {
     const availableCategories = [
-      { name: 'Technology', icon: 'fas fa-laptop-code' },
+      { name: 'Technology', icon: 'fas fa-laptop' },
       { name: 'Science', icon: 'fas fa-flask' },
       { name: 'Gaming', icon: 'fas fa-gamepad' },
       { name: 'News', icon: 'fas fa-newspaper' },
@@ -33,13 +32,24 @@ const Sidebar = () => {
 
   return (
     <aside className="sidebar">
-      {/* Navigation Links */}
       <div className="nav-links-sidebar">
-        <nav>
-          <ul className="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
+        <nav className="sidebar-nav-links"> 
+          <ul>
+            <li>
+              <a href="#">
+                <i className="fas fa-home"></i> Home
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i className="fas fa-fire"></i> Popular
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i className="fas fa-compass"></i> Explore
+              </a>
+            </li>
           </ul>
         </nav>
       </div>
@@ -59,9 +69,9 @@ const Sidebar = () => {
 
       <div className="categories">
         <h3>Subreddit Categories</h3>
-        <ul>
+        <ul className="category-list">
           {categories.map((category, index) => (
-            <li key={index}>
+            <li className="category-item" key={index}>
               <i className={category.icon}></i> {category.name}
             </li>
           ))}

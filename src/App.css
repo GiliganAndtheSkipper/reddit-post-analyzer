@@ -5,7 +5,7 @@ html, body {
   height: 100%;
   width: 100%;
   box-sizing: border-box;
-  background-color: #008080; /* Ensure teal background is visible */
+  background-color: #008080;
 }
 
 .App {
@@ -29,6 +29,8 @@ html, body {
 .App-header {
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+  height: 9%;
 }
 
 .App-footer {
@@ -50,7 +52,7 @@ html, body {
   padding: 0 20px;
 }
 
-/* Align logo and title next to each other */
+/* Logo and Title */
 .logo-title-container {
   display: inline-flex;
   align-items: center;
@@ -59,62 +61,23 @@ html, body {
 }
 
 .App-logo {
-  height: 43px;
-  margin-left: 6%; 
+  height: 34px;
+  margin-left: 1%;
   background-color: transparent;
-
-  /* Animation properties */
   animation: enhanced-3d-movement infinite 8s ease-in-out, 
              App-logo-glow infinite 5s ease-in-out,  
              App-logo-color-change infinite 7s linear,  
              App-logo-shape-shift infinite 6s ease-in-out;
+  margin-top: 1%;
+  
 }
 
 .header-title {
-  font-size: 32px;
+  font-size: 22px;
   font-weight: bold;
-  color: #ffffff; 
-  margin-left: 37%;
-}
-
-/* Navigation links styling */
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 30px;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: white;
-  font-size: 18px;
-  position: relative;
-  padding: 5px 0;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.nav-links a:hover {
-  color: #61dafb;
-  transform: scale(1.1);
-}
-
-.nav-links a::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: #61dafb;
-  transition: width 0.3s ease;
-}
-
-.nav-links a:hover::before {
-  width: 100%;
-}
-
-.nav-links a:active {
-  transform: scale(0.95);
+  color: #ffffff;
+  margin-left: 4%;
+  margin-top: 2%;
 }
 
 /* Adjust main layout with grid */
@@ -129,17 +92,6 @@ html, body {
   background-color: #008080;
 }
 
-
-/* Sidebar Styling */
-.sidebar {
-  background-color: #f4f4f4;
-  padding: 20px;
-  border-right: 1px solid #ddd;
-  overflow-y: auto;
-  height: calc(100vh - 140px);
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-}
-
 /* Hero section styling */
 .hero-section {
   flex-grow: 1;
@@ -149,12 +101,11 @@ html, body {
   max-width: 100%;
   box-sizing: border-box;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .hero-section h2 {
   font-size: 24px;
-  margin-bottom: 20px; /* Custom bottom margin */
+  margin-bottom: 20px;
   color: white;
   margin-right: 32%;
 }
@@ -269,12 +220,12 @@ html, body {
 /* Responsive layout for smaller screens */
 @media (max-width: 768px) {
   .app-content {
-    grid-template-columns: 1fr;  /* Sidebar and content stack vertically */
+    grid-template-columns: 1fr;
   }
 
   .sidebar {
-    width: 100%; /* Full-width sidebar */
-    margin-bottom: 20px; /* Space between sidebar and content */
+    width: 100%;
+    margin-bottom: 20px;
   }
 
   .hero-section {
