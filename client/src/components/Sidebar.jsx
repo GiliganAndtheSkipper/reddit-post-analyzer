@@ -7,9 +7,12 @@ const Sidebar = () => {
   const [categories, setCategories] = useState([]);
   const [subredditPosts, setSubredditPosts] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [loadingTopPosts, setLoadingTopPosts] = useState(false);
+  const [showMoreCategories, setShowMoreCategories] = useState(false);
 
   // Fetch top posts from Reddit
   useEffect(() => {
+    setLoadingTopPosts(true);
     fetch('https://www.reddit.com/r/all/top.json?limit=5')
       .then((response) => response.json())
       .then((data) => {
@@ -19,6 +22,11 @@ const Sidebar = () => {
           subreddit: post.data.subreddit,
         }));
         setTopPosts(posts);
+        setLoadingTopPosts(false);
+      })
+      .catch((error) => {
+        console.error('Error fetching top posts:', error);
+        setLoadingTopPosts(false);
       });
   }, []);
 
@@ -80,8 +88,11 @@ const Sidebar = () => {
       {/* Top Posts Section */}
       <div className="top-posts">
         <h3>Top Posts</h3>
+        {loadingTopPosts ? (
+          <p>Loading top posts...</p>
+        ) : (
         <ul>
-          {topPosts.map((post, index) => (
+          {topPosts.slice(0,5).map((post, index) => (
             <li key={index}>
               <a href={post.url} target="_blank" rel="noopener noreferrer">
                 {post.title} - {post.subreddit}
@@ -89,20 +100,26 @@ const Sidebar = () => {
             </li>
           ))}
         </ul>
+        )}
       </div>
 
       {/* Subreddit Categories Section */}
       <div className="categories">
         <h3>Subreddit Categories</h3>
         <ul>
-          {categories.map((category) => (
+          {categories.slice(0, showMoreCategories ? categories.length : 3).map((category) => (
             <li key={category.name} onClick={() => handleCategoryClick(category.name)}>
-               <a href="#" onClick={(e) => e.preventDefault()}>
+               <button>
                 <i className={category.icon}></i> {category.name}
-              </a>
+              </button>
             </li>
           ))}
         </ul>
+        {categories.length > 3 && (
+          <button onClick={() => setShowMoreCategories(!showMoreCategories)}>
+            {showMoreCategories ? "Show Less" : "Show More"}
+          </button>
+        )}
       </div>
 
             {/* Subreddit Posts Section */}

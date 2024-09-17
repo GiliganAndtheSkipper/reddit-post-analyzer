@@ -4,7 +4,7 @@
   padding: 10px;
   background-color: #f4f4f4; 
   flex-shrink: 0;
-  height: 80vh;
+  min-height: 100vh;
   overflow-y: auto;
   padding-right: 10px;
 }
@@ -181,7 +181,7 @@
   .sidebar {
     width: 250px;
     padding: 15px;
-    height: 80vh;
+    min-height: 100vh;
   }
 
   .top-posts h3, .categories h3 {
@@ -204,7 +204,7 @@
     border-right: none;
     border-bottom: 1px solid #ddd;
     padding: 10px;
-    height: 70vh;
+    min-height: 100vh;  
   }
 
   .top-posts h3, .categories h3 {
@@ -234,7 +234,7 @@
   .sidebar {
     width: 100%;
     padding: 5px;
-    height: 60vh;
+    min-height: 100vh;
   }
 
   .top-posts h3, .categories h3 {
