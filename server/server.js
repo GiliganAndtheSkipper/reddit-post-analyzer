@@ -3,8 +3,8 @@ const path = require('path');
 const axios = require('axios'); // To make HTTP requests to Reddit's API
 const app = express();
 
-// Serve static files from the public folder
-app.use(express.static(path.join(__dirname, 'public')));
+// Serve static files from the client/public directory
+app.use(express.static(path.join(__dirname, '../client/public')));
 
 // API endpoint for searching subreddits
 app.get('/api/search-subreddits', async (req, res) => {
@@ -24,11 +24,11 @@ app.get('/api/search-subreddits', async (req, res) => {
 
 // For any other route, serve the React app's index.html
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html')); // Ensure this path is correct
+  res.sendFile(path.join(__dirname, '../client/public', 'index.html'));
 });
 
 // Set the port
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 5002;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
