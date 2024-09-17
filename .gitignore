@@ -12,6 +12,7 @@ yarn.lock
 
 # production
 /build
+/dist/   
 
 # misc
 .DS_Store
@@ -28,6 +29,12 @@ public/favicon.ico
 public/logo192.png
 public/logo512.png
 
+# Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Caches
+client/node_modules/.cache/    
+/.eslintcache
+/.babelrc
