@@ -79,7 +79,23 @@
 
 .result-link:hover {
     color: #0056b3;
-    text-decoration: underline;
+    text-decoration: none;
+}
+
+button.result-link {
+    display: inline-block;  
+    margin-right: 15px;  
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button.result-link:hover {
+    background-color: rgb(71, 255, 99);
 }
 
 /* Engagement metrics */
