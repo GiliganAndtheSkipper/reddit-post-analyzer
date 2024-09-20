@@ -33,7 +33,7 @@ const Sidebar = () => {
   // Static subreddit categories
   useEffect(() => {
     const availableCategories = [
-      { name: 'Technology', icon: 'fas fa-laptop-code' },
+      { name: 'Tech', icon: 'fas fa-laptop-code' },
       { name: 'Science', icon: 'fas fa-flask' },
       { name: 'Gaming', icon: 'fas fa-gamepad' },
       { name: 'News', icon: 'fas fa-newspaper' },

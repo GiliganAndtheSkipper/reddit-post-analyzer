@@ -56,8 +56,8 @@
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 8px;
-    padding: 15px;
-    margin-bottom: 15px;
+    padding: 20px; /* Increased padding */
+    margin-bottom: 25px; /* Increased spacing between items */
     transition: background-color 0.3s ease;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 100%;
@@ -78,24 +78,25 @@
 }
 
 .result-link:hover {
-    color: #0056b3;
-    text-decoration: none;
+    color: #FFA07A;
+    text-decoration: none; /* Removed underline on hover */
 }
 
+/* Styling for the details button and Full Post link */
 button.result-link {
     display: inline-block;  
-    margin-right: 15px;  
-    padding: 8px 15px;
+    margin-right: 20px; /* Increased space between button and Full Post link */
+    padding: 12px 20px; /* Increased padding */
     background-color: #007bff;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 button.result-link:hover {
-    background-color: rgb(71, 255, 99);
+    background-color: #0056b3; /* Darken the button color on hover */
 }
 
 /* Engagement metrics */
@@ -132,12 +133,14 @@ button.result-link:hover {
     }
 
     .search-input {
-        font-size: 16px;
-        max-width: 400px;
+        font-size: 18px; /* Increased font size for large screens */
+        padding: 14px 18px; /* Larger padding for input field */
+        max-width: 450px;
     }
 
     .search-button {
-        font-size: 16px;
+        font-size: 18px; /* Increased font size for button */
+        padding: 14px 22px; /* Larger padding for button */
     }
 
     .result-link {
@@ -150,7 +153,7 @@ button.result-link:hover {
 
     .result-item {
         padding: 20px;
-        margin-bottom: 20px;
+        margin-bottom: 25px; /* More spacing between results on large screens */
     }
 }
 
@@ -185,7 +188,7 @@ button.result-link:hover {
 
     .result-item {
         padding: 15px;
-        margin-bottom: 15px;
+        margin-bottom: 20px;
     }
 
     .engagement-metrics {
@@ -202,10 +205,12 @@ button.result-link:hover {
 @media (max-width: 480px) {
     .search-input {
         font-size: 14px;
+        padding: 10px;
     }
 
     .search-button {
         font-size: 14px;
+        padding: 10px 16px; /* Adjust padding for small screens */
     }
 
     .result-link {
@@ -213,8 +218,8 @@ button.result-link:hover {
     }
 
     .result-item {
-        padding: 10px;
-        margin-bottom: 10px;
+        padding: 12px; /* Reduced padding for smaller screens */
+        margin-bottom: 15px;
     }
 
     .engagement-metrics {

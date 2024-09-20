@@ -1,5 +1,5 @@
 import React from 'react';
-import './PostDetail.css';  // Make sure this file exists and contains any necessary styles
+import './PostDetail.css';  
 
 const PostDetail = ({ post, setSelectedPost }) => {
   if (!post) return null;
