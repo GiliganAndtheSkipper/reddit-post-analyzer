@@ -30,21 +30,23 @@ const Sidebar = () => {
       });
   }, []);
 
-  // Static subreddit categories
+  // Static subreddit categories with subreddit mapping
   useEffect(() => {
     const availableCategories = [
-      { name: 'Tech', icon: 'fas fa-laptop-code' },
-      { name: 'Science', icon: 'fas fa-flask' },
-      { name: 'Gaming', icon: 'fas fa-gamepad' },
-      { name: 'News', icon: 'fas fa-newspaper' },
-      { name: 'Sports', icon: 'fas fa-football-ball' },
+      { name: 'Music', icon: 'fas fa-music', subreddit: 'Music' },
+      { name: 'Science', icon: 'fas fa-flask', subreddit: 'science' },
+      { name: 'Gaming', icon: 'fas fa-gamepad', subreddit: 'gaming' },
+      { name: 'News', icon: 'fas fa-newspaper', subreddit: 'news' },
+      { name: 'Sports', icon: 'fas fa-football-ball', subreddit: 'sports' },
+      { name: 'Spooky', icon: 'fas fa-ghost', subreddit: 'creepy' }, // Map 'Spooky' to 'creepy' subreddit
     ];
     setCategories(availableCategories);
   }, []);
 
-  const handleCategoryClick = (subredditName) => {
+  // Handle category click to fetch posts from a subreddit
+  const handleCategoryClick = (subreddit) => {
     setLoading(true);
-    fetch(`https://www.reddit.com/r/${subredditName}/top.json?limit=5`)
+    fetch(`https://www.reddit.com/r/${subreddit}/top.json?limit=5`)
       .then((response) => response.json())
       .then((data) => {
         const subredditPosts = data.data.children.map((post) => ({
@@ -64,7 +66,7 @@ const Sidebar = () => {
     <aside className="sidebar">
       {/* Navigation Links Section */}
       <div className="nav-links-sidebar">
-        <nav className="sidebar-nav-links"> 
+        <nav className="sidebar-nav-links">
           <ul>
             <li>
               <a href="#">
@@ -91,15 +93,15 @@ const Sidebar = () => {
         {loadingTopPosts ? (
           <p>Loading top posts...</p>
         ) : (
-        <ul>
-          {topPosts.slice(0,5).map((post, index) => (
-            <li key={index}>
-              <a href={post.url} target="_blank" rel="noopener noreferrer">
-                {post.title} - {post.subreddit}
-              </a>
-            </li>
-          ))}
-        </ul>
+          <ul>
+            {topPosts.slice(0, 5).map((post, index) => (
+              <li key={index}>
+                <a href={post.url} target="_blank" rel="noopener noreferrer">
+                  {post.title} - {post.subreddit}
+                </a>
+              </li>
+            ))}
+          </ul>
         )}
       </div>
 
@@ -108,8 +110,8 @@ const Sidebar = () => {
         <h3>Subreddit Categories</h3>
         <ul>
           {categories.slice(0, showMoreCategories ? categories.length : 3).map((category) => (
-            <li key={category.name} onClick={() => handleCategoryClick(category.name)}>
-               <button>
+            <li key={category.name} onClick={() => handleCategoryClick(category.subreddit)}>
+              <button>
                 <i className={category.icon}></i> {category.name}
               </button>
             </li>
@@ -117,32 +119,32 @@ const Sidebar = () => {
         </ul>
         {categories.length > 3 && (
           <button onClick={() => setShowMoreCategories(!showMoreCategories)}>
-            {showMoreCategories ? "Show Less" : "Show More"}
+            {showMoreCategories ? 'Show Less' : 'Show More'}
           </button>
         )}
       </div>
 
-            {/* Subreddit Posts Section */}
-        <div className="subreddit-posts">
-          {loading ? (
-            <p>Loading posts...</p>
-          ) : (
-            subredditPosts.length > 0 && (
-              <>
-                <h3>Subreddit Posts</h3>
-                <ul>
-                  {subredditPosts.map((post, index) => (
-                    <li key={index}> 
-                      <a href={post.url} target='_blank' rel='noopener noreferrer'>
-                        {post.title}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </>
-            )
-          )}  
-        </div>
+      {/* Subreddit Posts Section */}
+      <div className="subreddit-posts">
+        {loading ? (
+          <p>Loading posts...</p>
+        ) : (
+          subredditPosts.length > 0 && (
+            <>
+              <h3>Subreddit Posts</h3>
+              <ul>
+                {subredditPosts.map((post, index) => (
+                  <li key={index}>
+                    <a href={post.url} target="_blank" rel="noopener noreferrer">
+                      {post.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )
+        )}
+      </div>
     </aside>
   );
 };

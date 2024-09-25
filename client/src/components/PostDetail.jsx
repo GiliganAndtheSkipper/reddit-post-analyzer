@@ -6,10 +6,12 @@ const PostDetail = ({ post, setSelectedPost }) => {
 
   return (
     <div className="post-detail">
-      <button onClick={() => setSelectedPost(null)}>Back to results</button>
+      <button className="primary-button" onClick={() => setSelectedPost(null)}>
+        Back to results
+      </button>
       <h2>{post.title}</h2>
       <p>{post.selftext || 'No content available'}</p>
-      <a href={post.url} target="_blank" rel="noopener noreferrer">
+      <a href={post.url} target="_blank" rel="noopener noreferrer" className="custom-link">
         View on Reddit
       </a>
     </div>

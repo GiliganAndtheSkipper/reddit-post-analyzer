@@ -1,12 +1,4 @@
 /* Overall App container */
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-  box-sizing: border-box;
-  background-color: #008080;
-}
 
 .App {
   display: flex;
@@ -27,10 +19,11 @@ html, body {
 }
 
 .App-header {
-  justify-content: center;
+  display: flex;  /* Make header flexible to allow content alignment */
+  justify-content: space-between; /* Space between logo and search bar */
   align-items: center;
-  overflow: hidden;
   height: 11%;
+  padding: 0 20px;  /* Add padding to ensure search bar fits well */
 }
 
 .App-footer {
@@ -42,7 +35,7 @@ html, body {
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Logo and Navigation Container */
+/* Logo and Title */
 .logo-nav-container {
   display: flex;
   justify-content: space-between;
@@ -52,12 +45,11 @@ html, body {
   padding: 0 20px;
 }
 
-/* Logo and Title */
 .logo-title-container {
   display: inline-flex;
   align-items: center;
   justify-content: flex-start;
-  flex-grow: 1;  
+  flex-grow: 1;
 }
 
 .App-logo {
@@ -69,55 +61,6 @@ html, body {
              App-logo-color-change infinite 7s linear,  
              App-logo-shape-shift infinite 6s ease-in-out;
   margin-top: 1%;
-  
-}
-
-.header-title {
-  font-size: 22px;
-  font-weight: bold;
-  color: #ffffff;
-  margin-left: 4%;
-  margin-top: 2%;
-}
-
-/* Adjust main layout with grid */
-.app-content {
-  display: grid;
-  grid-template-columns: 250px 1fr;
-  gap: 20px;
-  margin-top: 80px;
-  margin-bottom: 60px;
-  height: calc(100vh - 140px);
-  overflow-y: auto;
-  background-color: #008080;
-}
-
-/* Hero section styling */
-.hero-section {
-  flex-grow: 1;
-  padding: 20px;
-  background-color: transparent;
-  color: #333;
-  max-width: 100%;
-  box-sizing: border-box;
-  border-radius: 8px;
-}
-
-.hero-section h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
-  color: white;
-  margin-right: 32%;
-}
-
-.hero-section p {
-  font-size: 18px;
-  color: #777;
-}
-
-/* Container for perspective effect */
-.container {
-  perspective: 1000px;
 }
 
 /* Keyframe for the 3D spinning effect */
@@ -217,6 +160,133 @@ html, body {
   }
 }
 
+
+ .header-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-left: 4%;
+  margin-top: 2%;
+} 
+
+.app-content {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 20px;
+  margin-top: 80px;
+  margin-bottom: 60px;
+  height: calc(100vh - 140px);
+  overflow-y: auto;
+  background-color: #008080;
+}
+
+
+/* Search form in the header */
+.search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.search-input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+  width: 100%;
+  max-width: 300px;
+}
+
+/* Adjust main layout with grid */
+.app-content {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 20px;
+  margin-top: 80px; 
+  margin-bottom: 60px;
+  height: calc(100vh - 140px);
+  overflow-y: auto;
+  background-color: #008080;
+}
+
+/* Hero section styling */
+.hero-section {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: transparent;
+  color: #333;
+  max-width: 100%;
+  box-sizing: border-box;
+  border-radius: 8px;
+  overflow-y: auto;
+}
+
+.hero-section h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: white;
+  margin-right: 32%;
+}
+
+.hero-section p {
+  font-size: 18px;
+  color: #777;
+}
+
+.hero-section ul {
+  padding: 20px;
+  margin: 0 auto;
+  list-style: none;
+  max-width: 800px;
+}
+
+.hero-section ul li {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 25px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hero-section ul li:hover {
+  background-color: #f1f1f1;
+}
+
+/* Container for perspective effect */
+.container {
+  perspective: 1000px;
+}
+
+
+/* Responsive layout for smaller screens */
+@media (max-width: 768px) {
+  .app-content {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .hero-section {
+    width: 100%;
+  }
+
+  .App-header {
+    flex-direction: column;  /* Stack logo and search bar vertically on small screens */
+    height: auto;
+    padding: 20px;
+  }
+
+  .search-input {
+    width: 100%;  /* Make search input take full width on small screens */
+  }
+}
 /* Responsive layout for smaller screens */
 @media (max-width: 768px) {
   .app-content {
@@ -232,3 +302,4 @@ html, body {
     width: 100%;
   }
 }
+

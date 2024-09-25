@@ -13,7 +13,6 @@
 .search-form {
     display: flex;
     justify-content: center;
-    margin-bottom: 30px;
 }
 
 /* Styling for the search input */
@@ -26,22 +25,6 @@
     max-width: 400px;
     margin-right: 10px;
     box-sizing: border-box;
-}
-
-/* Styling for the search button */
-.search-button {
-    padding: 12px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-/* Add hover effect to the button */
-.search-button:hover {
-    background-color: #0056b3;
 }
 
 /* Style for the results list */
@@ -61,42 +44,12 @@
     transition: background-color 0.3s ease;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 100%;
+    display: block;
 }
 
 /* Hover effect on result items */
 .result-item:hover {
     background-color: #f1f1f1;
-}
-
-/* Result links */
-.result-link {
-    text-decoration: none;
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #007bff;
-    word-wrap: break-word;
-}
-
-.result-link:hover {
-    color: #FFA07A;
-    text-decoration: none; /* Removed underline on hover */
-}
-
-/* Styling for the details button and Full Post link */
-button.result-link {
-    display: inline-block;  
-    margin-right: 20px; /* Increased space between button and Full Post link */
-    padding: 12px 20px; /* Increased padding */
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-button.result-link:hover {
-    background-color: #0056b3; /* Darken the button color on hover */
 }
 
 /* Engagement metrics */
@@ -122,9 +75,7 @@ button.result-link:hover {
     color: #333;
 }
 
-/* Media Queries for responsiveness */
-
-/* Large Screens */
+/* Media Queries */
 @media (min-width: 1024px) {
     .subreddit-search {
         max-width: 800px;
@@ -138,27 +89,13 @@ button.result-link:hover {
         max-width: 450px;
     }
 
-    .search-button {
-        font-size: 18px; /* Increased font size for button */
-        padding: 14px 22px; /* Larger padding for button */
-    }
-
-    .result-link {
-        font-size: 1.5em;
-    }
-
-    .engagement-metrics p {
-        font-size: 1em;
-    }
-
     .result-item {
         padding: 20px;
-        margin-bottom: 25px; /* More spacing between results on large screens */
+        margin-bottom: 25px;
     }
 }
 
-/* Medium Screens (Tablets) */
-@media (min-width: 768px) {
+@media (max-width: 768px) {
     .subreddit-search {
         flex-direction: row;
         justify-content: center;
@@ -176,49 +113,16 @@ button.result-link:hover {
         width: auto;
         flex-grow: 1;
     }
-
-    .search-button {
-        width: auto;
-        margin-left: 10px;
-    }
-
-    .result-link {
-        font-size: 1.2em;
-    }
-
-    .result-item {
-        padding: 15px;
-        margin-bottom: 20px;
-    }
-
-    .engagement-metrics {
-        justify-content: flex-start;
-    }
-
-    .engagement-metrics p {
-        flex-basis: 100%;
-        margin-bottom: 5px;
-    }
 }
 
-/* Small Screens (Phones) */
 @media (max-width: 480px) {
     .search-input {
         font-size: 14px;
         padding: 10px;
     }
 
-    .search-button {
-        font-size: 14px;
-        padding: 10px 16px; /* Adjust padding for small screens */
-    }
-
-    .result-link {
-        font-size: 1.1em;
-    }
-
     .result-item {
-        padding: 12px; /* Reduced padding for smaller screens */
+        padding: 12px;
         margin-bottom: 15px;
     }
 
