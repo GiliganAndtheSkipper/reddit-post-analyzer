@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import './SubredditSearch.css';  // Import the styles for result cards
-import PostDetail from './PostDetail';  // Ensure we still use PostDetail for detailed view
-import './PostDetail.css';  // Import styles for post details
+import './SubredditSearch.css';  
+import PostDetail from './PostDetail';  
+import './PostDetail.css';  
 
 const SubredditSearch = () => {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [selectedPost, setSelectedPost] = useState(null);  // To show detailed post view
+  const [selectedPost, setSelectedPost] = useState(null);  
   const [showMore, setShowMore] = useState(false);
 
   // Function to handle search submission
@@ -17,7 +17,7 @@ const SubredditSearch = () => {
     try {
       const response = await fetch(`https://www.reddit.com/subreddits/search.json?q=${query}`);
       const data = await response.json();
-      setResults(data.data.children);  // Directly use data from the response
+      setResults(data.data.children);  
       setLoading(false);
     } catch (error) {
       console.error('Error fetching subreddits:', error);
@@ -71,7 +71,14 @@ const SubredditSearch = () => {
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Enter subreddit name or topic"
             />
-            <button className="primary-button" type="submit">Search</button>
+            <button 
+              className="primary-button" 
+              type="submit"
+              onClick={handleSearch} 
+              onPointerDown={handleSearch} // Handles touch events for mobile
+            >
+              Search
+            </button>
           </form>
 
           {/* Show loading state */}
@@ -81,31 +88,41 @@ const SubredditSearch = () => {
           <ul className="results-list">
             {results.slice(0, showMore ? results.length : 5).map((subreddit) => (
               <li className="result-item" key={subreddit.data.id}>
-                <div className="result-card">
-                  <div className="result-card-left">
-                    {/* Placeholder image for subreddit */}
-                    <img src="https://via.placeholder.com/150" alt="Subreddit" className="result-image" />
-                  </div>
-                  <div className="result-card-right">
-                    <a
-                      href={`https://www.reddit.com${subreddit.data.url}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="custom-link"
-                    >
-                      {subreddit.data.display_name_prefixed}
-                    </a>
-                    <p className="result-description">{subreddit.data.public_description}</p>
-                    
-                    {/* Button to view post details */}
-                    <button
-                      className="primary-button"
-                      onClick={() => handlePostClick(subreddit.data.url)}
-                    >
-                      Details
-                    </button>
+                {/* Display subreddit icon */}
+                <img
+                  src={subreddit.data.icon_img || 'https://via.placeholder.com/50'}
+                  alt={subreddit.data.display_name}
+                  className="subreddit-icon"
+                />
+
+                {/* Subreddit content and description */}
+                <div className="result-item-content">
+                  <a
+                    href={`https://www.reddit.com${subreddit.data.url}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="result-link"
+                  >
+                    {subreddit.data.display_name_prefixed}
+                  </a>
+                  <p className="result-description">
+                    {subreddit.data.public_description || "No description available"}
+                  </p>
+
+                  {/* Display subscriber count and creation date */}
+                  <div className="result-metrics">
+                    <span><strong>Subscribers:</strong> {subreddit.data.subscribers.toLocaleString()}</span>
+                    <span><strong>Created on:</strong> {new Date(subreddit.data.created_utc * 1000).toLocaleDateString()}</span>
                   </div>
                 </div>
+
+                {/* Button to view post details */}
+                <button
+                  className="primary-button"
+                  onClick={() => handlePostClick(subreddit.data.url)}
+                >
+                  Details
+                </button>
               </li>
             ))}
           </ul>

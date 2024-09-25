@@ -38,8 +38,15 @@ const Sidebar = () => {
       { name: 'Gaming', icon: 'fas fa-gamepad', subreddit: 'gaming' },
       { name: 'News', icon: 'fas fa-newspaper', subreddit: 'news' },
       { name: 'Sports', icon: 'fas fa-football-ball', subreddit: 'sports' },
-      { name: 'Spooky', icon: 'fas fa-ghost', subreddit: 'creepy' }, // Map 'Spooky' to 'creepy' subreddit
-    ];
+      { name: 'Spooky', icon: 'fas fa-ghost', subreddit: 'creepy' },
+      { name: 'Technology', icon: 'fas fa-laptop-code', subreddit: 'technology' },
+      { name: 'Movies', icon: 'fas fa-film', subreddit: 'movies' },
+      { name: 'Books', icon: 'fas fa-book', subreddit: 'books' },
+      { name: 'Art', icon: 'fas fa-paint-brush', subreddit: 'art' },
+      { name: 'Travel', icon: 'fas fa-plane', subreddit: 'travel' },
+      { name: 'Fitness', icon: 'fas fa-dumbbell', subreddit: 'fitness' },
+      { name: 'Food', icon: 'fas fa-utensils', subreddit: 'food' },
+    ]; 
     setCategories(availableCategories);
   }, []);
 
@@ -64,29 +71,6 @@ const Sidebar = () => {
 
   return (
     <aside className="sidebar">
-      {/* Navigation Links Section */}
-      <div className="nav-links-sidebar">
-        <nav className="sidebar-nav-links">
-          <ul>
-            <li>
-              <a href="#">
-                <i className="fas fa-home"></i> Home
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i className="fas fa-fire"></i> Popular
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i className="fas fa-compass"></i> Explore
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-
       {/* Top Posts Section */}
       <div className="top-posts">
         <h3>Top Posts</h3>

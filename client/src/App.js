@@ -9,20 +9,35 @@ function App() {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
-
+  const [error, setError] = useState(null);
   // Function to handle search form submission
   const handleSearch = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setError(null);
     try {
       const response = await fetch(`https://www.reddit.com/subreddits/search.json?q=${query}`);
       const data = await response.json();
+      if (data.error || !data.data.children.length) {
+        setError('No results found. please try another query.');
+      } else {
       setResults(data.data.children); 
+    }
       setLoading(false);
     } catch (error) {
-      console.error('Error fetching subreddits:', error);
+      setError('Error fetching subreddits. Please try again.');
       setLoading(false);
     }
+  };
+
+  const clearSearch = () => {
+    setQuery('');
+    setResults([]);
+  };
+
+  const formatDate = (timestamp) => {
+    const date = new Date(timestamp * 1000);
+    return date.toDateString();
   };
 
   return (
@@ -42,6 +57,11 @@ function App() {
               placeholder="Enter subreddit name or topic"
             />
             <button className="primary-button" type="submit">Search</button>
+            {query && (
+              <button className="clear-button" type="button" onClick={clearSearch}>
+                Clear
+              </button>
+            )}
           </form>
         </div>
       </header>
@@ -49,22 +69,27 @@ function App() {
       <main className="app-content">
         <Sidebar />
 
-        {/* Hero Section is now used to display search results */}
         <section className="hero-section">
-          {/* Loading spinner */}
-          {loading ? <p>Loading...</p> : null}
+          {error && <p className="error-message">{error}</p>}
+          {loading && <div className="spinner">Loading...</div>}
 
           {/* Search Results */}
-          <ul>
+          {!loading && results.length > 0 && (
+          <ul className="results-list">
             {results.map((subreddit) => (
-              <li key={subreddit.data.id}>
-                <a href={`https://www.reddit.com${subreddit.data.url}`} target="_blank" rel="noopener noreferrer">
+              <li key={subreddit.data.id} className="result-item">
+                <img src={subreddit.data.icon_img || 'https://via.placeholder.com/50'} alt={subreddit.data.display_name} className="subreddit-icon" />
+                <a href={`https://www.reddit.com${subreddit.data.url}`} target="_blank" rel="noopener noreferrer" className="result-link">
                   {subreddit.data.display_name_prefixed}
                 </a>
                 <p>{subreddit.data.public_description}</p>
+                <p><strong>Subscribers:</strong> {subreddit.data.subscribers}</p>
+                <p><strong>Created on:</strong> {formatDate(subreddit.data.created_utc)}</p>
               </li>
             ))}
           </ul>
+          )}
+          {!loading && !results.length && !error && <p>No search results yet. Try searching for something.</p>}
         </section>
       </main>
 
