@@ -10,10 +10,39 @@ const SubredditSearch = () => {
   const [selectedPost, setSelectedPost] = useState(null);  
   const [showMore, setShowMore] = useState(false);
 
+  const trackEngagement = (eventType, query) => {
+    const data = {
+      event: eventType,
+      query: query,
+      timestamp: new Date().toISOString()
+    };
+  
+    fetch('http://localhost:5002/api/track', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+
+    .then(response => {
+      if (response.ok) {
+        console.log('Tracking data sent successfully')
+      } else {
+        console.error('Error sending tracking data');
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  };
+  
   // Function to handle search submission
   const handleSearch = async (e) => {
     e.preventDefault();
     setLoading(true);
+
+    trackEngagement('search_action', query);
     try {
       const response = await fetch(`https://www.reddit.com/subreddits/search.json?q=${query}`);
       const data = await response.json();
@@ -115,8 +144,6 @@ const SubredditSearch = () => {
                     <span><strong>Created on:</strong> {new Date(subreddit.data.created_utc * 1000).toLocaleDateString()}</span>
                   </div>
                 </div>
-
-                {/* Button to view post details */}
                 <button
                   className="primary-button"
                   onClick={() => handlePostClick(subreddit.data.url)}

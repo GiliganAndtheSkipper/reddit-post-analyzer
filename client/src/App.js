@@ -1,6 +1,7 @@
 import './App.css';
 import SubredditSearch from './components/SubredditSearch.jsx';
 import './components/Footer.css';
+import './components/PostDetail.css';
 import Sidebar from './components/Sidebar.jsx';
 import { useState } from 'react';
 
