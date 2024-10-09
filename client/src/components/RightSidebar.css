@@ -1,0 +1,53 @@
+.right-sidebar {
+    width: 250px;
+    padding: 15px;
+    background-color: #f4f4f4;
+    flex-shrink: 0;
+    min-height: 100vh;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.top-posts {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.top-posts h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.top-posts ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.top-posts li {
+    margin-bottom: 15px;
+}
+
+.top-posts a {
+    font-size: 16px;
+    line-height: 1.4;
+    text-decoration: none;
+    color: #0070f3;
+    word-break: break-word;
+}
+
+.top-posts a:hover {
+    text-decoration: none;
+    color: #0056b3;
+}
+
+@media (max-width: 768px) {
+    .app-content {
+      grid-template-columns: 1fr; /* Stacks the Sidebar, Main Content, and RightSidebar vertically */
+    }
+  
+    .right-sidebar,
+    .sidebar {
+      width: 100%; /* Both sidebars expand to take the full width on mobile view */
+      padding: 10px; /* Adjust padding for better spacing on small screens */
+    }
+}

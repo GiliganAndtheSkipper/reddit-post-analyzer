@@ -1,25 +1,15 @@
 const webpack = require('webpack');
+const { override, addBabelPlugin, addWebpackPlugin } = require('customize-cra');
 
-module.exports = function override(config) {
-  config.resolve.fallback = {
-    stream: require.resolve('stream-browserify'),
-    zlib: require.resolve('browserify-zlib'),
-    crypto: require.resolve('crypto-browserify'),
-    path: require.resolve('path-browserify'),
-    http: require.resolve('stream-http'),
-    https: require.resolve('https-browserify'),  
-    os: require.resolve('os-browserify/browser'),
-    fs: false,  
-    querystring: require.resolve('querystring-es3'),
-    net: false,  
-  };
+module.exports = override(
+  (config) => {
+    config.plugins.push(
+      new webpack.ProvidePlugin({
+        process: 'process/browser',
+        Buffer: ['buffer', 'Buffer'],
+      })
+    );
 
-  config.plugins.push(
-    new webpack.ProvidePlugin({
-      process: 'process/browser',
-      Buffer: ['buffer', 'Buffer'],
-    })
-  );
-
-  return config;
-};
+    return config;
+  },
+);

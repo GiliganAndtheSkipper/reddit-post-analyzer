@@ -3,6 +3,7 @@ const path = require('path');
 const axios = require('axios'); 
 const cors = require('cors');
 const { MongoClient } = require('mongodb');
+const { title } = require('process');
 require('dotenv').config();
 
 const app = express();
@@ -49,6 +50,51 @@ app.get('/api/search-subreddits', async (req, res) => {
   } catch (error) {
     console.error('Error fetching subreddits:', error.message || error);
     res.status(500).json({ message: 'Error fetching subreddits' });
+  }
+});
+
+// API endpoint for fetching detailed Reddit posts
+app.get('/api/search-posts', async (req, res) => {
+  const { query, type } = req.query;
+
+  if (!query || !type) {
+    return res.status(400).json({ message: 'Both query and type parameters are required' });
+  }
+
+  try {
+    let url = '';
+    if (type === 'subreddit') {
+      url = `https://www.reddit.com/r/${query}/.json`;
+    } else if (type === 'author') {
+      url = `https://www.reddit.com/user/${query}/submitted.json`;
+    } else {
+      return res.status(400).json({ message: 'Invalid type parameter. Must be "subreddit" or "author"' });
+    }
+
+    const response = await axios.get(url);
+
+    // relevant data from Reddit API response
+    const posts = response.data.data.children.map(post => {
+      const postData = post.data;
+      return {
+        title: postData.title,
+        author: postData.author,
+        subreddit: postData.subreddit,
+        content: postData.selftext,
+        score: postData.score,
+        num_comments: postData.num_comments,
+        permalink: `https://www.reddit.com${postData.permalink}`,
+        created_utc: new Date(postData.created_utc * 1000).toLocaleString(),
+        thumbnail: postData.thumbnail,
+        post_hint: postData.post_hint,
+        url: postData.url
+      };
+    });
+
+    res.json(posts);
+  } catch (error) {
+    console.error('Error fetching posts:', error.message || error);
+    res.status(500).json({ message: 'Error fetching posts' });
   }
 });
 

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './Sidebar.css';
-/*import { response } from 'express';*/
 
-const Sidebar = () => {
+// State to hold the top Reddit posts, categories, and subreddit posts
+const Sidebar = ({ onCategorySelected }) => {
   const [topPosts, setTopPosts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [subredditPosts, setSubredditPosts] = useState([]);
@@ -46,7 +46,7 @@ const Sidebar = () => {
       { name: 'Travel', icon: 'fas fa-plane', subreddit: 'travel' },
       { name: 'Fitness', icon: 'fas fa-dumbbell', subreddit: 'fitness' },
       { name: 'Food', icon: 'fas fa-utensils', subreddit: 'food' },
-    ]; 
+    ];
     setCategories(availableCategories);
   }, []);
 
@@ -67,10 +67,16 @@ const Sidebar = () => {
         console.error('Error fetching subreddit posts:', error);
         setLoading(false);
       });
+    if (onCategorySelected) {
+      onCategorySelected(subreddit);
+    }
   };
 
   return (
     <aside className="sidebar">
+      {/* Instructional Text */}
+      <h4 className='instruction-text'>Click a category to explore top posts</h4>
+      
       {/* Top Posts Section */}
       <div className="top-posts">
         <h3>Top Posts</h3>
@@ -95,14 +101,14 @@ const Sidebar = () => {
         <ul>
           {categories.slice(0, showMoreCategories ? categories.length : 3).map((category) => (
             <li key={category.name} onClick={() => handleCategoryClick(category.subreddit)}>
-              <button>
+              <button className='category-button'>
                 <i className={category.icon}></i> {category.name}
               </button>
             </li>
           ))}
         </ul>
         {categories.length > 3 && (
-          <button onClick={() => setShowMoreCategories(!showMoreCategories)}>
+          <button className='show-more-button' onClick={() => setShowMoreCategories(!showMoreCategories)}>
             {showMoreCategories ? 'Show Less' : 'Show More'}
           </button>
         )}

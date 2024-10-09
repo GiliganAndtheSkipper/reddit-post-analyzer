@@ -9,8 +9,15 @@
   padding-right: 10px;
 }
 
-/* Top Posts and Categories Section */
+/* Instructional Text */
+.instruction-text {
+  margin-bottom: 1rem;
+  font-weight: bold;
+  color: #444;
+  text-align: center;
+}
 
+/* Top Posts and Categories Section */
 .top-posts {
   margin-bottom: 20px;
   text-align: center;  
@@ -65,37 +72,55 @@
   list-style: none;
 }
 
-.categories ul li {
+.category-button {
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
-  display: inline-flex; 
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   width: 80%;
-  padding: 15px;
+  padding: 12px 20px;
   background-color: #007bff;
   color: white;
-  border-radius: 30px;
-  margin-bottom: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   font-weight: bold;
-  text-align: center; 
+  text-align: center;
+  border: none;
+  font-size: 16px;
 }
 
-.categories ul li:hover {
-  background-color: #1d2d50;
+.category-button:hover {
+  background: linear-gradient(135deg, #2a2d69, #6268d6);
   color: white;
-  transform: translateY(-3px); 
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-4px); 
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-.categories ul li i {
-  margin-right: 10px;
-  font-size: 18px;
+.category-button i {
+  margin-right: 12px;
+  font-size: 20px;
 }
 
-.categories ul li:hover i {
+.category-button:hover i {
+  color: inherit;
+}
+
+/* Show More/Show Less Button */
+.show-more-button {
+  margin-top: 10px;
+  background-color: #007bff;
   color: #fff;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.show-more-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
 }
 
 /* Subreddit Posts */
@@ -177,6 +202,17 @@
   .top-posts a {
     font-size: 14px;
   }
+
+  .category-button {
+    width: 95%;
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+
+  .category-button i {
+    margin-right: 8px;
+    font-size: 18px;
+  }
 }
 
 /* Mobile Media Query (480px and below) */
@@ -194,5 +230,22 @@
 
   .top-posts li, .categories li {
     font-size: 12px;
+  }
+
+  .category-button {
+    width: 100%;
+    padding: 8px 16px;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+
+  .category-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .category-button i {
+    margin-right: 6px;
+    font-size: 16px;
   }
 }

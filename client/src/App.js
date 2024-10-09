@@ -3,6 +3,7 @@ import SubredditSearch from './components/SubredditSearch.jsx';
 import './components/Footer.css';
 import './components/PostDetail.css';
 import Sidebar from './components/Sidebar.jsx';
+import RightSidebar from './components/RightSidebar';
 import { useState } from 'react';
 
 function App() {
@@ -92,6 +93,7 @@ function App() {
           )}
           {!loading && !results.length && !error && <p>No search results yet. Try searching for something.</p>}
         </section>
+        <RightSidebar />
       </main>
 
       <footer className="App-footer">
