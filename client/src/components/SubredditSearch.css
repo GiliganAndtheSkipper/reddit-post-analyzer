@@ -167,7 +167,11 @@ button.primary-button, button.clear-button {
 
     .search-input {
         font-size: 18px;
-        max-width: 450px;
+        max-width: 200px;
+    }
+
+    .primary-button, .clear-button {
+      width: 22%;
     }
 }
 
